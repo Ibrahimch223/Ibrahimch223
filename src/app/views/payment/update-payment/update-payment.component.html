@@ -1,0 +1,105 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="Update Payment" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Update Payment</h4>
+
+          <form [formGroup]="productForm" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              
+                <div class="mb-3">
+                  <label class="control-label">last-name</label>
+                  <input class="form-control" placeholder="Enter lastname" type="text" name="lastname" autocomplete="off" formControlName="lastname"
+                      [ngClass]="{'is-invalid': submitted && form.lastname.errors}" />
+                    <div *ngIf="submitted && form.lastname.errors" class="invalid-feedback">
+                      <span *ngIf="form.lastname.errors.required">last-name is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">subscription type</label>
+                  <ng-select [items]="selectValue" class="form-control" autocomplete="off" formControlName="subscriptiontype"
+                      [ngClass]="{'is-invalid': submitted && form.subscriptiontype.errors}" ></ng-select>
+                    <div *ngIf="submitted && form.subscriptiontype.errors" class="invalid-feedback">
+                      <span *ngIf="form.subscriptiontype.errors.required">subscription type is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">status</label>
+                  <ng-select [items]="selectValue" class="form-control" autocomplete="off" formControlName="status"
+                      [ngClass]="{'is-invalid': submitted && form.status.errors}" ></ng-select>
+                    <div *ngIf="submitted && form.status.errors" class="invalid-feedback">
+                      <span *ngIf="form.status.errors.required">status is required.</span>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label class="control-label">id-Customersr</label>
+                  <ng-select [items]="selectValue" class="form-control" autocomplete="off" formControlName="iduser"
+                      [ngClass]="{'is-invalid': submitted && form.iduser.errors}" ></ng-select>
+                      <div *ngIf="submitted && form.iduser.errors" class="invalid-feedback">
+                        <span *ngIf="form.iduser.errors.required">id-Customets is required.</span>
+                      </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">payment type mode</label>
+                  <ng-select [items]="selectValue" class="form-control" autocomplete="off" formControlName="paymenttypemode"
+                      [ngClass]="{'is-invalid': submitted && form.paymenttypemode.errors}" ></ng-select>
+                    <div *ngIf="submitted && form.paymenttypemode.errors" class="invalid-feedback">
+                      <span *ngIf="form.paymenttypemode.errors.required">payment type mode is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">amount</label>
+                  <input class="form-control" placeholder="Enter amount" type="number" autocomplete="off" name="amount" formControlName="amount"
+                      [ngClass]="{'is-invalid': submitted && form.amount.errors}" />
+                    <div *ngIf="submitted && form.amount.errors" class="invalid-feedback">
+                      <span *ngIf="form.amount.errors.required">amount is required.</span>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="mb-3">
+                  <label class="control-label">payment date</label>
+                  <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker"
+                      (click)="d.toggle()" autocomplete="off" formControlName="paymentdate"
+                      [ngClass]="{'is-invalid': submitted && form.paymentdate.errors}" />
+                    <div *ngIf="submitted && form.paymentdate.errors" class="invalid-feedback">
+                      <span *ngIf="form.paymentdate.errors.required">payment date is required.</span>
+                    </div>
+                </div>
+             </div>
+             <div class="col-lg-12">
+              <div class="mb-3">
+                <label class="control-label">description</label>
+                <textarea formControlName="description" class="form-control" rows="5"
+                  [ngClass]="{'is-invalid': submitted && form.description.errors}"></textarea>
+                  <div *ngIf="submitted && form.description.errors" class="invalid-feedback">
+                    <span *ngIf="form.description.errors.required">description is required.</span>
+                  </div>
+              </div>
+            </div>
+            </div>
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="submit" class="btn btn-secondary" (click)="onReset()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

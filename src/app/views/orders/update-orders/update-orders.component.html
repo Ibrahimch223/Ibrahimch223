@@ -1,0 +1,109 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="Add Product" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Update Orders</h4>
+
+          <form [formGroup]="productForm" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              
+                  <label class="control-label">sender</label>
+                  <ng-select [items]="selectValue" class="form-control"  autocomplete="off" formControlName="sender"
+                      [ngClass]="{'is-invalid': submitted && form.sender.errors}"></ng-select>
+                    <div *ngIf="submitted && form.sender.errors" class="invalid-feedback">
+                      <span *ngIf="form.sender.errors.required">sender is required.</span>
+                    </div>
+                <div class="mb-3">
+                <label class="control-label">reciver</label>
+                <ng-select [items]="selectValue" class="form-control" autocomplete="off" formControlName="reciver"
+                    [ngClass]="{'is-invalid': submitted && form.reciver.errors}" ></ng-select>
+                    <div *ngIf="submitted && form.reciver.errors" class="invalid-feedback">
+                      <span *ngIf="form.reciver.errors.required">reciver is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">packageweight</label>
+                  <input class="form-control" placeholder="Enter package weight" type="number" name="package weight" autocomplete="off" formControlName="packageweight"
+                      [ngClass]="{'is-invalid': submitted && form.packageweight.errors}" />
+                    <div *ngIf="submitted && form.packageweight.errors" class="invalid-feedback">
+                      <span *ngIf="form.packageweight.errors.required">package weight is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">state</label>
+                  <ng-select [items]="selectValue" class="form-control" autocomplete="off" formControlName="state"
+                      [ngClass]="{'is-invalid': submitted && form.state.errors}" ></ng-select>
+                    <div *ngIf="submitted && form.state.errors" class="invalid-feedback">
+                      <span *ngIf="form.state.errors.required">state is required.</span>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label class="control-label">package length</label>
+                  <input class="form-control" placeholder="Enter package length" type="number" autocomplete="off" name="balance" formControlName="packagelength"
+                      [ngClass]="{'is-invalid': submitted && form.packagelength.errors}" />
+                    <div *ngIf="submitted && form.packagelength.errors" class="invalid-feedback">
+                      <span *ngIf="form.packagelength.errors.required">package length is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">package width</label>
+                  <input class="form-control" placeholder="Enter package width" type="number" autocomplete="off" name="packagewidth" formControlName="packagewidth"
+                      [ngClass]="{'is-invalid': submitted && form.packagewidth.errors}" />
+                    <div *ngIf="submitted && form.packagewidth.errors" class="invalid-feedback">
+                      <span *ngIf="form.packagewidth.errors.required">package width is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">delivery rate</label>
+                  <ng-select [items]="selectValue" class="form-control" autocomplete="off" formControlName="deliveryrate"
+                      [ngClass]="{'is-invalid': submitted && form.deliveryrate.errors}" ></ng-select>
+                    <div *ngIf="submitted && form.deliveryrate.errors" class="invalid-feedback">
+                      <span *ngIf="form.deliveryrate.errors.required">delivery rate is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">package type</label>
+                  <ng-select [items]="selectValue" class="form-control" autocomplete="off" formControlName="packagetype"
+                      [ngClass]="{'is-invalid': submitted && form.packagetype.errors}" ></ng-select>
+                    <div *ngIf="submitted && form.packagetype.errors" class="invalid-feedback">
+                      <span *ngIf="form.packagetype.errors.required">package type is required.</span>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="mb-3">
+                    <label class="control-label">delivery date</label>
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker"
+                        (click)="d.toggle()" autocomplete="off" formControlName="deliverydate"
+                        [ngClass]="{'is-invalid': submitted && form.deliverydate.errors}" />
+                      <div *ngIf="submitted && form.deliverydate.errors" class="invalid-feedback">
+                        <span *ngIf="form.deliverydate.errors.required">delivery date is required.</span>
+                      </div>
+                  </div>
+            </div>
+            </div>
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="submit" class="btn btn-secondary" (click)="onReset()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

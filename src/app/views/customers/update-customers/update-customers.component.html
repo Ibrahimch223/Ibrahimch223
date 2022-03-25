@@ -1,0 +1,84 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="Add Product" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Update Customers</h4>
+
+          <form [formGroup]="productForm" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label class="control-label">last name</label>
+                  <input class="form-control" placeholder="Enter last name" type="text" name="last name" autocomplete="off" formControlName="lastname"
+                      [ngClass]="{'is-invalid': submitted && form.lastname.errors}" />
+                    <div *ngIf="submitted && form.lastname.errors" class="invalid-feedback">
+                      <span *ngIf="form.lastname.errors.required">last name is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">email</label>
+                  <input class="form-control" placeholder="Enter email" type="email" name="email" autocomplete="off" formControlName="email"
+                      [ngClass]="{'is-invalid': submitted && form.email.errors}" />
+                      <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                        <div *ngIf="form.email.errors.required">Email is required</div>
+                        <div *ngIf="form.email.errors.email">This value should be a valid email.</div>
+                      </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">address</label>
+                  <input class="form-control" placeholder="Enter address" type="text" name="address" autocomplete="off" formControlName="address"
+                      [ngClass]="{'is-invalid': submitted && form.address.errors}" />
+                    <div *ngIf="submitted && form.address.errors" class="invalid-feedback">
+                      <span *ngIf="form.address.errors.required">address is required.</span>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label class="control-label">number</label>
+                  <input class="form-control" placeholder="Enter number" type="number" name="number" autocomplete="off" formControlName="number"
+                      [ngClass]="{'is-invalid': submitted && form.number.errors}" />
+                    <div *ngIf="submitted && form.number.errors" class="invalid-feedback">
+                      <span *ngIf="form.number.errors.required">number is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">country</label>
+                  <input class="form-control" placeholder="Enter country" type="text" name="country" autocomplete="off" formControlName="country"
+                      [ngClass]="{'is-invalid': submitted && form.country.errors}" />
+                    <div *ngIf="submitted && form.country.errors" class="invalid-feedback">
+                      <span *ngIf="form.country.errors.required">country is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">city</label>
+                  <input class="form-control" placeholder="Enter last name" type="text" name="city" autocomplete="off" formControlName="city"
+                      [ngClass]="{'is-invalid': submitted && form.city.errors}" />
+                    <div *ngIf="submitted && form.city.errors" class="invalid-feedback">
+                      <span *ngIf="form.city.errors.required">city is required.</span>
+                    </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="submit" class="btn btn-secondary" (click)="onReset()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

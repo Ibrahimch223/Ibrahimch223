@@ -1,0 +1,95 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="Update Vehicle" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Update Vehicle</h4>
+
+          <form [formGroup]="productForm" (ngSubmit)="validSubmit()">
+            <div class="row">
+              <div class="col-sm-6">
+              
+                <div class="mb-3">
+                  <label class="control-label">brand</label>
+                  <input class="form-control" placeholder="Enter brand" type="text" name="brand" autocomplete="off" formControlName="brand"
+                      [ngClass]="{'is-invalid': submitted && form.brand.errors}" />
+                    <div *ngIf="submitted && form.brand.errors" class="invalid-feedback">
+                      <span *ngIf="form.brand.errors.required">brand is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">registration-number</label>
+                  <input class="form-control" placeholder="Enter registration-number" type="text" name="brand" autocomplete="off" formControlName="registrationnumber"
+                      [ngClass]="{'is-invalid': submitted && form.registrationnumber.errors}" />
+                    <div *ngIf="submitted && form.registrationnumber.errors" class="invalid-feedback">
+                      <span *ngIf="form.registrationnumber.errors.required">registration-number is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">cost of technical visit</label>
+                  <input class="form-control" placeholder="Enter cost of technical visit" type="number" autocomplete="off" name="costoftechnicalvisit" formControlName="costoftechnicalvisit"
+                      [ngClass]="{'is-invalid': submitted && form.costoftechnicalvisit.errors}" />
+                    <div *ngIf="submitted && form.costoftechnicalvisit.errors" class="invalid-feedback">
+                      <span *ngIf="form.costoftechnicalvisit.errors.required">cost of technical visit is required.</span>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label class="control-label">mileage</label>
+                  <input class="form-control" placeholder="Enter mileage" type="text" name="brand" autocomplete="off" formControlName="mileage"
+                      [ngClass]="{'is-invalid': submitted && form.mileage.errors}" />
+                    <div *ngIf="submitted && form.mileage.errors" class="invalid-feedback">
+                      <span *ngIf="form.mileage.errors.required">mileage is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">state</label>
+                  <ng-select [items]="selectValue" class="form-control" autocomplete="off" formControlName="state"
+                      [ngClass]="{'is-invalid': submitted && form.state.errors}" ></ng-select>
+                    <div *ngIf="submitted && form.state.errors" class="invalid-feedback">
+                      <span *ngIf="form.state.errors.required">state is required.</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                  <label class="control-label">cost of insurance</label>
+                  <input class="form-control" placeholder="Enter costofinsurance" type="number" autocomplete="off" name="costofinsurance" formControlName="costofinsurance"
+                      [ngClass]="{'is-invalid': submitted && form.costofinsurance.errors}" />
+                    <div *ngIf="submitted && form.costofinsurance.errors" class="invalid-feedback">
+                      <span *ngIf="form.costofinsurance.errors.required">cost of insurance is required.</span>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="mb-3">
+                  <label class="control-label">type of vehicle</label>
+                  <ng-select [items]="selectValue" class="form-control" autocomplete="off" formControlName="typeofvehicle"
+                      [ngClass]="{'is-invalid': submitted && form.typeofvehicle.errors}" ></ng-select>
+                    <div *ngIf="submitted && form.typeofvehicle.errors" class="invalid-feedback">
+                      <span *ngIf="form.typeofvehicle.errors.required">type of vehicle is required.</span>
+                    </div>
+                </div>
+             </div>
+          
+            </div>
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="submit" class="btn btn-secondary" (click)="onReset()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->
